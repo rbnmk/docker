@@ -1,0 +1,41 @@
+version: "3.3"
+
+networks:
+  web:
+    external:
+      name: web
+
+services:
+
+  devopsagent1:
+    image: pipelines:latest
+    container_name: devopsagent1
+    networks:
+      - web
+    environment:
+      - AZP_URL=${AZP_URL}
+      - AZP_TOKEN=${AZP_TOKEN}
+      - AZP_AGENT_NAME=agent001
+    restart: unless-stopped
+
+  devopsagent2:
+    image: pipelines:latest
+    container_name: devopsagent2
+    networks:
+      - web
+    environment:
+      - AZP_URL=${AZP_URL}
+      - AZP_TOKEN=${AZP_TOKEN}
+      - AZP_AGENT_NAME=agent002
+    restart: unless-stopped
+
+  devopsagent3:
+    image: pipelines:latest
+    container_name: devopsagent3
+    networks:
+      - web
+    environment:
+      - AZP_URL=${AZP_URL}
+      - AZP_TOKEN=${AZP_TOKEN}
+      - AZP_AGENT_NAME=agent003
+    restart: unless-stopped
