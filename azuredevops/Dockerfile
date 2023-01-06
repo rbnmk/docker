@@ -56,6 +56,9 @@ RUN bicep --help
 
 ## PowerShell Modules
 RUN pwsh -c Install-Module -Name Az -AllowClobber -Scope AllUsers -Force
+RUN pwsh -c Install-Module -Name Microsoft.Graph -AllowClobber -Scope AllUsers -Force
+RUN pwsh -c Install-Module -Name Pester -AllowClobber -Scope AllUsers -Force
+RUN pwsh -c Install-Module -Name PSScriptAnalyzer -AllowClobber -Scope AllUsers -Force
 
 # Can be 'linux-x64', 'linux-arm64', 'linux-arm', 'rhel.6-x64'.
 ENV TARGETARCH=linux-x64
